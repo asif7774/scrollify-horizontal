@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>fullPage.js - Scroll Horizontally Extension</title>
+	<meta name="Resource-type" content="Document" />
+
+	<link rel="stylesheet" type="text/css" href="./css/jquery.fullPage.css" />
+	<link rel="stylesheet" type="text/css" href="./css/examples.css" />
+
+	<!--[if IE]>
+		<script type="text/javascript">
+			 var console = { log: function() {} };
+		</script>
+	<![endif]-->
+
+	
+</head>
+<body>
+
+<ul id="menu" style=" display:none">
+	<li data-menuanchor="firstPage"><a href="#firstPage">First slide</a></li>
+	<li data-menuanchor="secondPage"><a href="#secondPage">Second slide</a></li>
+	<li data-menuanchor="3rdPage"><a href="#3rdPage">Third slide</a></li>
+	<li data-menuanchor="4thpage"><a href="#4thpage">Fourth slide</a></li>
+</ul>
+
+<ul class="preview-extensions-menu" style=" display:none">
+	<li class="preview-more-extensions"><a href="index.html">More extensions</a></li><!--
+	--><li class="preview-buy-extension"><a href="https://gum.co/fullpageScrollHorizontally">Download extension</a></li>
+</ul>
+
+<div id="fullpage">
+
+	<div class="section">
+		<div class="slide" ><h1>Section 1</h1></div>
+		<div class="slide"><h1>Slide 1.2</h1></div>
+		<div class="slide"><h1>Slide 1.3</h1></div>
+	</div>
+	<div class="section" style=" display:none"><h1></h1></div>
+	<div class="section" style=" display:none">
+		<div class="slide"><h1></h1></div>
+		<div class="slide"><h1></h1></div>
+		<div class="slide"><h1></h1></div>
+		<div class="slide"><h1></h1></div>
+	</div>
+	<div class="section" style=" display:none"><h1></h1></div>
+</div>
+
+<input type="hidden" id="_4" value="3" />
+<script src="./js/jquery.min.js"></script>
+	<script type="text/javascript" src="./js/jquery.easings.min.js"></script>
+
+	<script type="text/javascript" src="./js/fullpage.scrollHorizontally.limited.min.js"></script>
+	<script type="text/javascript" src="./js/jquery.fullPage.js"></script>
+
+	<script type="text/javascript">
+	$(document).ready(function() {
+		var pepe = $('#fullpage').fullpage({
+			sectionsColor: ['#4A6FB1', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff', '#ccc'],
+			//anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage'],
+			menu: '#menu',
+			slidesNavigation: true,
+			afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex){
+				console.log("slideLoad--" + "anchorLink: " + anchorLink + " index: " + index + " slideAnchor: " + slideAnchor + " slideIndex: " + slideIndex);
+
+			},
+			onSlideLeave: function(anchorLink, index, slideIndex, direction){
+				console.log("----------------");
+				console.log("onSlideLeave--" + "anchorLink: " + anchorLink + " index: " + index + " slideIndex: " + slideIndex + " direction: " + direction);
+			}
+		});
+	});
+	</script>
+
+</body>
+
+</html>
